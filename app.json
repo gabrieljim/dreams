@@ -1,0 +1,24 @@
+{
+  "expo": {
+    "name": "Dreams",
+    "slug": "dreams",
+    "privacy": "public",
+    "sdkVersion": "36.0.0",
+    "platforms": ["ios", "android", "web"],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/2c2a4a.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#2c2a4a"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    }
+  }
+}

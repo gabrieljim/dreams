@@ -1,0 +1,54 @@
+{
+  "translation": {
+    "////Tab////": {},
+
+    "feed": "Feed",
+    "dream": "Dream",
+    "profile": "Profile",
+
+    "////Auth////": {},
+
+    "login": "Login",
+    "register": "Register",
+
+    "nameField": "Username or email",
+    "usernameField": "Username",
+    "emailField": "Email",
+    "passwordField": "Password",
+    "confirmPasswordField": "Confirm Password",
+
+    "makeAccount": "Make an account",
+    "gotAccount": "Already got an account?",
+    "usernameRequired": "Username required",
+    "maxUsernameCharacters": "Username must be below 20 characters",
+    "emailRequired": "Email required",
+    "emailInvalid": "Email invalid",
+    "passwordRequired": "Password required",
+    "minPasswordCharacters": "Password must be at least 8 characters long",
+    "confirmPassword": "Confirm your password",
+    "passwordsNotMatching": "Passwords don't match",
+
+    "userNotFound": "User not found",
+    "incorrectPassword": "Incorrect password",
+    "userExists": "User exists",
+
+    "////New Dream/////": {},
+
+    "newDreamScreenTitle": "What did you dream about?",
+    "dreamTitle": "Title your dream",
+    "titleRequired": "Please provide a title",
+    "titleMaxCharacters": "Title must be below 35 characters",
+    "tellMeMore": "Tell me more...",
+    "bodyRequired": "What happened in your dream?",
+    "postDream": "Post dream",
+
+    "////Feed/////": {},
+
+    "secondsAgo": " seconds ago",
+    "minutesAgo": " minutes ago",
+    "hoursAgo": " hours ago",
+    "daysAgo": " days ago",
+    "monthsAgo": " months ago",
+    "yearsAgo": " years ago"
+  }
+}

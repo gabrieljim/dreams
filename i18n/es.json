@@ -1,0 +1,54 @@
+{
+  "translation": {
+    "////Tab////": {},
+
+    "feed": "Feed",
+    "dream": "Sueño",
+    "profile": "Perfil",
+
+    "////Auth////": {},
+
+    "login": "Iniciar Sesión",
+    "register": "Registrate",
+
+    "nameField": "Usuario o correo",
+    "usernameField": "Usuario",
+    "emailField": "Correo",
+    "passwordField": "Contraseña",
+    "confirmPasswordField": "Confirmar contraseña",
+
+    "makeAccount": "Hazte una cuenta",
+    "gotAccount": "¿Ya tienes cuenta?",
+    "usernameRequired": "Nombre de usuario requerido",
+    "maxUsernameCharacters": "Nombre de usuario debe ser menor a 20 carácteres",
+    "emailRequired": "Correo requerido",
+    "emailInvalid": "Correo invalido",
+    "passwordRequired": "Contraseña requerida",
+    "minPasswordCharacters": "La contraseña debe ser mayor a 8 carácteres",
+    "confirmPassword": "Confirme su contraseña",
+    "passwordsNotMatching": "Las contraseñas no coinciden",
+
+    "userNotFound": "Usuario no existente",
+    "incorrectPassword": "Contraseña incorrecta",
+    "userExists": "Usuario existente",
+
+    "////New Dream/////": {},
+
+    "newDreamScreenTitle": "¿Qué soñaste?",
+    "dreamTitle": "Ponle título a tu sueño",
+    "titleRequired": "Provee un titulo",
+    "titleMaxCharacters": "El título debe ser menor a 35 carácteres",
+    "tellMeMore": "Cuéntame más...",
+    "bodyRequired": "¿Qué pasó en tu sueño?",
+    "postDream": "Postear sueño",
+
+    "////Feed/////": {},
+
+    "secondsAgo": " segundos atrás",
+    "minutesAgo": " minutos atrás",
+    "hoursAgo": " horas atrás",
+    "daysAgo": " dias atrás",
+    "monthsAgo": " meses atrás",
+    "yearsAgo": " años atrás"
+  }
+}
