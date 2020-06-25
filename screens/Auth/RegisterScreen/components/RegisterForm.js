@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ActivityIndicator } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { Button, HightlightedButton } from "ui/Buttons";
+import { Button, HighlightedButton } from "ui/Buttons";
 import { ErrorText } from "ui/Texts";
 import { Container } from "ui/Containers";
 import { FormInput } from "components/FormInputs";
@@ -83,7 +83,7 @@ const RegisterForm = () => {
             ) : (
               <>
                 {serverError && <ErrorText>{t(serverError)}</ErrorText>}
-                <HightlightedButton
+                <HighlightedButton
                   title={t("register")}
                   pressHandler={handleSubmit}
                 />

@@ -1,7 +1,6 @@
 import { SERVER_URL } from "react-native-dotenv";
 import { AsyncStorage } from "react-native";
 
-
 const protectedFetch = async (url, options) => {
 	const token = await AsyncStorage.getItem("token");
 	const response = await fetch(url, {
@@ -61,6 +60,15 @@ export const postComment = async (comment, dreamId, user) => {
 	return response;
 };
 
+export const likeDream = async dreamId => {
+	const response = await protectedFetch(SERVER_URL + "/dreams/likeDream", {
+		method: "PUT",
+		body: JSON.stringify({ dreamId })
+	});
+	return response;
+};
+
+/*
 export const uploadAudio = async audio => {
 	console.log(audio);
 	const response = await protectedFetch(SERVER_URL + "/dreams/test", {
@@ -69,3 +77,4 @@ export const uploadAudio = async audio => {
 	});
 	return response;
 };
+*/

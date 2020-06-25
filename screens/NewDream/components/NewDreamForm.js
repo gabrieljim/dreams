@@ -1,11 +1,12 @@
 import React from "react";
 import { ActivityIndicator } from "react-native";
-import { HightlightedButton } from "ui/Buttons";
+import { HighlightedButton } from "ui/Buttons";
 import { Container } from "ui/Containers";
 import { FormInput, FormTextArea } from "components/FormInputs";
 import { Formik } from "formik";
 import * as yup from "yup";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { refreshFeed } from "store/globalState";
 import { useNavigation } from "@react-navigation/native";
 
 import * as dream from "services/dream";
@@ -13,15 +14,17 @@ import { useTranslation } from "react-i18next";
 
 const NewDreamForm = () => {
 	const theme = useSelector(state => state.theme);
+	const dispatch = useDispatch();
 	const navigation = useNavigation();
 
 	const { t } = useTranslation();
 
 	const submitDream = async values => {
 		await dream.createDream({ ...values });
+		dispatch(refreshFeed(true));
+		
 		navigation.navigate("FeedStack", {
-			screen: "Feed",
-			params: { refresh: true }
+			screen: "Feed"
 		});
 	};
 
@@ -60,7 +63,7 @@ const NewDreamForm = () => {
 						{isSubmitting ? (
 							<ActivityIndicator size="large" color={theme.contrast} />
 						) : (
-							<HightlightedButton
+							<HighlightedButton
 								pressHandler={handleSubmit}
 								title={t("postDream")}
 							/>

@@ -1,7 +1,9 @@
 import React from "react";
 import { ScrollView } from "react-native-gesture-handler";
-import { View, } from "react-native";
+import { View } from "react-native";
 import { Text, Title } from "ui/Texts";
+import { LikeButton } from "ui/Buttons";
+import { Container } from "ui/Containers";
 import styled from "styled-components";
 import DreamFooter from "components/DreamFooter";
 import CommentInput from "./CommentInput";
@@ -29,6 +31,17 @@ const DreamHeader = props => {
 					comments={props.comments ? props.comments.length : 0}
 					date={dream.date}
 				/>
+				<Container
+					style={{
+						marginTop: 30,
+						flexDirection: "row",
+						alignItems: "center",
+						justifyContent: "flex-start"
+					}}
+				>
+					<LikeButton dream={dream.id} />
+					<Text> Liked this dream?</Text>
+				</Container>
 			</DreamContainer>
 			<CommentsContainer>
 				<CommentInput onComment={props.onComment} dreamId={dream.id} />

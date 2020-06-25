@@ -49,6 +49,11 @@
     "hoursAgo": " hours ago",
     "daysAgo": " days ago",
     "monthsAgo": " months ago",
-    "yearsAgo": " years ago"
+    "yearsAgo": " years ago",
+
+		"///Profile////": {},
+
+		"publishedDreams": "Published dreams:",
+		"seeAllDreams": "See all my dreams"
   }
 }

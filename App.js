@@ -6,6 +6,7 @@ import { Provider, useSelector, useDispatch } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import themeReducer from "store/themeSlice";
 import authReducer from "store/authSlice";
+import globalState from "store/globalState";
 import { authenticate } from "store/authSlice";
 
 import MainTab from "navigation/MainTab";
@@ -17,7 +18,8 @@ import "./i18n/i18n";
 const store = configureStore({
   reducer: {
     theme: themeReducer,
-    auth: authReducer
+		auth: authReducer,
+		global: globalState
   },
   enhancers: [Reactotron.createEnhancer()]
 });

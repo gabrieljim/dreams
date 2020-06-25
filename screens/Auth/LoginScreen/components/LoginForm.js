@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { Button, HightlightedButton } from "ui/Buttons";
+import { Button, HighlightedButton } from "ui/Buttons";
 import { Container } from "ui/Containers";
 import { ErrorText } from "ui/Texts";
 import { FormInput } from "components/FormInputs";
@@ -52,7 +52,7 @@ const LoginForm = () => {
 						) : (
 							<>
 								{serverError && <ErrorText>{t(serverError)}</ErrorText>}
-								<HightlightedButton
+								<HighlightedButton
 									title={t("login")}
 									pressHandler={handleSubmit}
 								/>

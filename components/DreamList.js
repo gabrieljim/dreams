@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { FlatList } from "react-native";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Text } from "ui/Texts";
 import { ActivityIndicator } from "react-native-paper";
+import { refreshFeed } from "store/globalState";
 import * as dream from "services/dream";
 import Dream from "components/Dream";
 
@@ -13,8 +14,22 @@ const DreamList = props => {
 	const [endReached, setEndReached] = useState(false);
 	const theme = useSelector(state => state.theme);
 	const user = useSelector(state => state.auth.user.id);
+	const shouldRefreshFeed = useSelector(
+		state => state.global.shouldRefreshFeed
+	);
+	const dispatch = useDispatch();
 
 	const { userDreamsOnly } = props;
+
+	// When a new dream is created, the NewDreamForm dispatches an action that updates the global state checked here
+
+	useEffect(() => {
+		if (shouldRefreshFeed) {
+			setIsRefreshing(true);
+			fetchDreams();
+			dispatch(refreshFeed(false));
+		}
+	}, [shouldRefreshFeed]);
 
 	useEffect(
 		React.useCallback(() => {
@@ -23,27 +38,34 @@ const DreamList = props => {
 		[page]
 	);
 
-	const refreshDreams = async () => {
-		setIsRefreshing(true);
-		setPage(0);
-	};
+	// fetchDreams is called everytime the page is updated
 
 	const fetchDreams = async () => {
 		const fetchingDreamsFunction = userDreamsOnly
 			? dream.fetchUserDreams.bind(this, user)
 			: dream.fetchDreams;
 
+		const dreamList = await fetchingDreamsFunction(page);
+
 		if (page === 0) {
-			const dreamList = await fetchingDreamsFunction(0);
 			setDreams(dreamList);
 		} else {
-			const dreamList = await fetchingDreamsFunction(page);
 			if (dreamList.length > 0) {
 				setDreams(prevDreams => [...prevDreams, ...dreamList]);
 			}
 		}
+
 		setEndReached(false);
 		setIsRefreshing(false);
+	};
+
+	const refreshDreams = async () => {
+		setIsRefreshing(true);
+		if (page === 0) {
+			fetchDreams();
+		} else {
+			setPage(0);
+		}
 	};
 
 	const endReachedHandler = async () => {

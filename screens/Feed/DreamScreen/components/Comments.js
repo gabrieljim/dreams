@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Container } from "ui/Containers";
 import { FlatList, ActivityIndicator } from "react-native";
 import { Text } from "ui/Texts";
 import Comment from "./Comment";
@@ -14,7 +15,9 @@ const Comments = props => {
 				!comments ? (
 					<ActivityIndicator size="large" color={theme.contrast} />
 				) : (
-					<Text>No comments found...</Text>
+					<Container style={{ alignItems: "flex-start", margin: 20 }}>
+						<Text>No comments found...</Text>
+					</Container>
 				)
 			}
 			ListHeaderComponent={<props.DreamHeader />}
