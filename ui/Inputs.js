@@ -9,15 +9,15 @@ const CustomTextInput = props => {
 };
 
 export const Input = styled(CustomTextInput)`
+	color: ${props => props.theme.text}
 	backgroundColor: ${props => props.theme.background};
 	borderBottomColor: ${props => props.theme.onSurface};
 	borderBottomWidth: 1px;
 	fontSize: 20px;
 	padding: 10px;
-	margin: 13px;
+	marginBottom: 16px;
 	width: 100%;
-	color: ${props => props.theme.text};
-`;
+`
 
 const CustomTextArea = props => {
 	const theme = useSelector(state => state.theme);

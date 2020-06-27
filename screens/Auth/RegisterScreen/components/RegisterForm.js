@@ -57,7 +57,7 @@ const RegisterForm = () => {
     >
       {({ handleSubmit, isSubmitting }) => (
         <>
-          <Container style={{ flexGrow: 2 }}>
+					<Container style={{ flexGrow: 2, justifyContent: "center" }}>
             <FormInput placeholder={t("usernameField")} name="username" />
             <FormInput
               placeholder={t("emailField")}

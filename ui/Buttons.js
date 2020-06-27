@@ -85,7 +85,7 @@ export const LikeButton = props => {
 	}, [])
 
 
-	const getLikeStatus => {
+	const getLikeStatus = () =>{
 	// TODO	
 	}
 
@@ -105,7 +105,7 @@ export const LikeButton = props => {
 	}
 
 	return (
-		<TouchableWithoutFeedback onPress={like}>
+		<TouchableWithoutFeedback style={{marginRight: 10}} onPress={like}>
 			{isLiked ? (
 				<FontAwesome color={theme.error} size={20} name="heart" />
 			) : (

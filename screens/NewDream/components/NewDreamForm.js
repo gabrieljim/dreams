@@ -59,7 +59,7 @@ const NewDreamForm = () => {
 							name="body"
 						/>
 					</Container>
-					<Container style={{ justifyContent: "flex-start", flexGrow: 1 }}>
+					<Container style={{textAlign: "left"}}>
 						{isSubmitting ? (
 							<ActivityIndicator size="large" color={theme.contrast} />
 						) : (

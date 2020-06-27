@@ -1,13 +1,11 @@
 import React from "react";
 import Main from "ui/Main";
 import { Container } from "ui/Containers";
-import { Title, Text } from "ui/Texts";
+import { Title } from "ui/Texts";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "ui/Buttons";
 import { useTranslation } from "react-i18next";
 import { logout } from "redux/authSlice";
-
-import DreamList from "components/DreamList";
 
 const MyProfileScreen = () => {
 	const { t } = useTranslation();
@@ -25,7 +23,6 @@ const MyProfileScreen = () => {
 				<Title>{publishedDreams}</Title>
 				<Button
 					title={t("seeAllDreams")}
-					pressHandler={() => console.log("lskfj")}
 				/>
 				<Button title="Logout" pressHandler={() => dispatch(logout())} />
 			</Container>

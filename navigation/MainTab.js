@@ -1,8 +1,8 @@
 import React from "react";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 
-import NewDreamScreen from "screens/NewDream/NewDreamScreen";
-import MyProfileScreen from "screens/MyProfile/MyProfileScreen";
+import NewDreamScreen from "screens/NewDream";
+import MyProfileScreen from "screens/MyProfile";
 import FeedStack from "navigation/FeedStack";
 import { useSelector } from "react-redux";
 import { FontAwesome } from "@expo/vector-icons";

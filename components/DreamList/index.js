@@ -5,6 +5,7 @@ import { Text } from "ui/Texts";
 import { ActivityIndicator } from "react-native-paper";
 import { refreshFeed } from "store/globalState";
 import * as dream from "services/dream";
+
 import Dream from "components/Dream";
 
 const DreamList = props => {
