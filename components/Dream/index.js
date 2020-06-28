@@ -12,7 +12,7 @@ const Dream = props => {
 	return (
 		<SC.Content>
 			<SC.TouchableDreamContainer
-				onPress={() => navigation.navigate("Dream", { dream: props })}
+				onPress={() => navigation.navigate("Dream", { dreamId: props.id })}
 			>
 					<View>
 						<Title>{props.title}</Title>

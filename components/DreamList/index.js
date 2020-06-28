@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FlatList } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { Text } from "ui/Texts";
-import { ActivityIndicator } from "react-native-paper";
+import Loading from "ui/Loading";
 import { refreshFeed } from "store/globalState";
 import * as dream from "services/dream";
 
@@ -13,12 +13,13 @@ const DreamList = props => {
 	const [page, setPage] = useState(0);
 	const [isRefreshing, setIsRefreshing] = useState(false);
 	const [endReached, setEndReached] = useState(false);
-	const theme = useSelector(state => state.theme);
+
+	const dispatch = useDispatch();
 	const user = useSelector(state => state.auth.user.id);
+
 	const shouldRefreshFeed = useSelector(
 		state => state.global.shouldRefreshFeed
 	);
-	const dispatch = useDispatch();
 
 	const { userDreamsOnly } = props;
 
@@ -77,7 +78,7 @@ const DreamList = props => {
 	};
 
 	if (!dreams) {
-		return <ActivityIndicator size="large" color={theme.contrast} />;
+		return <Loading />;
 	}
 
 	return (
@@ -92,7 +93,7 @@ const DreamList = props => {
 			showsVerticalScrollIndicator={false}
 			ListEmptyComponent={<Text>No dreams found...</Text>}
 			ListFooterComponent={() => (
-				<ActivityIndicator size="large" color={theme.contrast} />
+				<Loading />
 			)}
 			ListFooterComponentStyle={{ opacity: endReached ? 1 : 0 }}
 			keyExtractor={item => item._id}
@@ -105,6 +106,7 @@ const DreamList = props => {
 					authorUsername={item.authorUsername}
 					date={item.date}
 					comments={item.comments}
+					likes={item.likes}
 				/>
 			)}
 		/>

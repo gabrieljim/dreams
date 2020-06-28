@@ -1,7 +1,8 @@
 import React from "react";
 import { Keyboard, TouchableWithoutFeedback } from "react-native";
-import RegisterForm from "./components/RegisterForm";
 import { useTranslation } from "react-i18next";
+
+import RegisterForm from "./components/RegisterForm";
 
 import * as SC from "./styles";
 

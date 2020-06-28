@@ -2,7 +2,6 @@ import React from "react";
 import { Keyboard, TouchableWithoutFeedback } from "react-native";
 import { useTranslation } from "react-i18next";
 
-import { Container } from "ui/Containers";
 import * as SC from "./styles";
 
 import LoginForm from "./components/LoginForm";

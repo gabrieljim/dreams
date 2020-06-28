@@ -24,6 +24,16 @@ export const fetchDreams = async page => {
 	return response.dreams;
 };
 
+export const fetchDream = async dreamId => {
+	const response = await protectedFetch(
+		SERVER_URL + `/dreams/getDream?dreamId=${dreamId}`,
+		{
+			method: "GET"
+		}
+	);
+	return response.dream;
+};
+
 export const fetchUserDreams = async (user, page) => {
 	const response = await protectedFetch(
 		SERVER_URL + `/dreams/${user}?page=${page}`,
@@ -60,11 +70,24 @@ export const postComment = async (comment, dreamId, user) => {
 	return response;
 };
 
-export const likeDream = async dreamId => {
-	const response = await protectedFetch(SERVER_URL + "/dreams/likeDream", {
-		method: "PUT",
-		body: JSON.stringify({ dreamId })
-	});
+export const fetchLikeStatus = async dreamId => {
+	const response = await protectedFetch(
+		SERVER_URL + `/dreams/${dreamId}/isLiked`,
+		{
+			method: "GET"
+		}
+	);
+	return response;
+};
+
+export const likeDream = async (dreamId, dislike = false) => {
+	const response = await protectedFetch(
+		SERVER_URL + "/dreams/likeDream?dislike=" + dislike,
+		{
+			method: "PUT",
+			body: JSON.stringify({ dreamId })
+		}
+	);
 	return response;
 };
 

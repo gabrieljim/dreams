@@ -15,8 +15,8 @@ const MyProfileScreen = () => {
 	const publishedDreams = `${t("publishedDreams")} 50`;
 
 	return (
-		<Main style={{ justifyContent: "space-evenly" }}>
-			<Container>
+		<Main style={{ justifyContent: "flex-end" }}>
+			<Container style={{justifyContent: "flex-end"}}>
 				<Title>{user.username}</Title>
 			</Container>
 			<Container style={{ justifyContent: "flex-start" }}>

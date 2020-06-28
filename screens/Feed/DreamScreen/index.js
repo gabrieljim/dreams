@@ -1,39 +1,40 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
+
 import Main from "ui/Main";
+import Loading from "ui/Loading";
+
+import useFetch from "hooks/useFetch";
+import { fetchDream } from "services/dream";
 import DreamHeader from "./components/DreamHeader";
 import Comments from "./components/Comments";
-import { fetchComments } from "services/dream";
 
 const DreamScreen = props => {
-	const { dream } = props.route.params;
-	const [comments, setComments] = useState(false);
+	const { dreamId } = props.route.params;
+	const [dream, loading] = useFetch(() => fetchDream(dreamId));
 	const theme = useSelector(state => state.theme);
 
 	//Dream header (the dream itself) had to be put inside of Comments because of the way virtualized lists work
-	
-	const updateComments = async (dreamId) => {
-		setComments(await fetchComments(dreamId));
-	}
 
-	useEffect(() => {
-		updateComments(dream.id);
-	}, []);
+	if (loading) {
+		return (
+			<Main>
+				<Loading />
+			</Main>
+		);
+	}
 
 	return (
 		<Main>
 			<Comments
 				theme={theme}
-				comments={comments}
+				comments={dream.comments}
 				DreamHeader={() => (
 					<DreamHeader
-						onComment={updateComments}
 						theme={theme}
 						dream={dream}
-						comments={comments}
 					/>
 				)}
-				dreamId={dream.id}
 			/>
 		</Main>
 	);

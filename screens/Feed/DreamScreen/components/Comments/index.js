@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Container } from "ui/Containers";
+import { withTheme } from "styled-components";
 import { FlatList, ActivityIndicator } from "react-native";
 import { Text } from "ui/Texts";
-import Comment from "./Comment";
+import Comment from "../Comment";
+
+import * as SC from "./styles";
 
 const Comments = props => {
 	const { theme, comments } = props;
@@ -13,11 +15,11 @@ const Comments = props => {
 			data={comments}
 			ListEmptyComponent={
 				!comments ? (
-					<ActivityIndicator size="large" color={theme.contrast} />
+					<Loading />
 				) : (
-					<Container style={{ alignItems: "flex-start", margin: 20 }}>
+					<SC.NoComments>
 						<Text>No comments found...</Text>
-					</Container>
+					</SC.NoComments>
 				)
 			}
 			ListHeaderComponent={<props.DreamHeader />}
@@ -28,4 +30,11 @@ const Comments = props => {
 	);
 };
 
-export default Comments;
+const Loading = withTheme(props => (
+	<ActivityIndicator size="large" color={props.theme.contrast} />
+));
+
+export default React.memo(
+	Comments,
+	(prevProps, nextProps) => prevProps.comments === nextProps.comments
+);
